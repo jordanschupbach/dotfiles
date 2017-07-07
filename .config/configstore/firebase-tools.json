@@ -1,0 +1,37 @@
+{
+	"analytics-uuid": "f68526a1-6610-4a52-9492-c9a0e70185cc",
+	"motd": {
+		"minVersion": "3.0.5"
+	},
+	"motd.fetched": 1496879727280,
+	"usage": false,
+	"user": {
+		"azp": "563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com",
+		"aud": "563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com",
+		"sub": "100787760072397426955",
+		"email": "jordans1882@gmail.com",
+		"email_verified": true,
+		"at_hash": "nHRdCpQWGetRYm87W02OYg",
+		"iss": "accounts.google.com",
+		"iat": 1496879789,
+		"exp": 1496883389
+	},
+	"tokens": {
+		"expires_at": 1496898668237,
+		"refresh_token": "1/j1IrXWbgRtyRUz3qs-E5Hixv4Jsswztmu4sj6JfebJ4",
+		"scopes": [
+			"email",
+			"https://www.googleapis.com/auth/cloud-platform",
+			"https://www.googleapis.com/auth/cloudplatformprojects.readonly",
+			"https://www.googleapis.com/auth/firebase",
+			"openid"
+		],
+		"access_token": "ya29.GlxjBHWTECKo1HD7NlgOPoDkhx0JX8d2xdR-hyUFvq2Hk_mTWrJrpUANuyP77lz85Qyk-GxeLJWJ2ZiLUtUh3nahqGXrua1dpVMGElH4YzopVttT9mEJEAUd_TpjiA",
+		"token_type": "Bearer",
+		"expires_in": 3600,
+		"id_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImIyNzE5ZjMxYzZiYTFlNWZlNjY0ZmJiMWJmMGY3YzA1YjNkM2EwYTEifQ.eyJhenAiOiI1NjM1ODQzMzU4NjktZmdyaGdtZDQ3YnFuZWtpajVpOGI1cHIwM2hvODQ5ZTYuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI1NjM1ODQzMzU4NjktZmdyaGdtZDQ3YnFuZWtpajVpOGI1cHIwM2hvODQ5ZTYuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMDA3ODc3NjAwNzIzOTc0MjY5NTUiLCJlbWFpbCI6ImpvcmRhbnMxODgyQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhdF9oYXNoIjoiZ3ZVWmlSRHZCaVZpaEJLTGdJdzNBQSIsImlzcyI6ImFjY291bnRzLmdvb2dsZS5jb20iLCJpYXQiOjE0OTY4OTUwNjcsImV4cCI6MTQ5Njg5ODY2N30.GPb_cc89onDsb520PxdXxkIsaHnqqVyyuJW4CMLFpixc7BeoiQf1Rp2WWPEI-Mb2aAgcwfRSUgpBxgmEsdh0ntqstSginQqZdLjPkGE3ELP8A1tnm9S8MZ-LYkogORNCAkLlytLnKKSZU2aqnJE2sHurxYDOYIPzSf80d7AU_Bji9OBM_rrd1vp7drUxxePQGfbGU9kDNt9ZmrCJIi5b16Oz7LBJ1922f6qRBizW8SYfkKewN_3HqSMuraAy0c4V9IdMfHa6hhnAtCPjdB1iiAJNQboLJYFkXN_SFojoZbkhJQWaW_7RWAeQNZ8koEJb9XbRyuV05Tt3zmRL1qflpQ"
+	},
+	"activeProjects": {
+		"/home/jordan/git_repos/friendlychat/web-start": "staging"
+	}
+}

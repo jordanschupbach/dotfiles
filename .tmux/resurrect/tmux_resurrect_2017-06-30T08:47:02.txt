@@ -1,0 +1,17 @@
+pane	burkhardt-nematode_community	0	:vim	0	:	0	:/mnt/mydata/Consulting/burkhardt-nematode_community	1	vim	:vim readme.md
+pane	burkhardt-nematode_community	1	:vit	0	:	0	:/mnt/mydata/Consulting/burkhardt-nematode_community	1	perl	:/usr/bin/perl -w /usr/local/bin/vit
+pane	burkhardt-nematode_community	2	:ranger	0	:-	0	:/mnt/mydata/Consulting/burkhardt-nematode_community	1	python	:/usr/bin/python -O /usr/bin/ranger
+pane	burkhardt-nematode_community	3	:~	1	:*	0	:/home/jordan	1	zsh	:
+pane	mannheimer-msu_data_census	0	:..ta/Consulting	1	:*	0	:/mnt/mydata/Consulting	1	zsh	:
+pane	mannheimer-msu_data_census	1	:vit	0	:	0	:/home/jordan	1	perl	:/usr/bin/perl -w /usr/local/bin/vit
+pane	mannheimer-msu_data_census	2	:ranger	0	:	0	:/home/jordan	1	python	:/usr/bin/python -O /usr/bin/ranger
+pane	mannheimer-msu_data_census	3	:cd	0	:-	0	:/home/jordan/Audio	1	cmus	:cmus
+window	burkhardt-nematode_community	0	0	:	d081,146x39,0,0,4
+window	burkhardt-nematode_community	1	0	:	d082,146x39,0,0,5
+window	burkhardt-nematode_community	2	0	:-	d083,146x39,0,0,6
+window	burkhardt-nematode_community	3	1	:*	ae84,146x40,0,0,7
+window	mannheimer-msu_data_census	0	1	:*	ae7d,146x40,0,0,0
+window	mannheimer-msu_data_census	1	0	:	ae7e,146x40,0,0,1
+window	mannheimer-msu_data_census	2	0	:	ae7f,146x40,0,0,2
+window	mannheimer-msu_data_census	3	0	:-	ae80,146x40,0,0,3
+state	burkhardt-nematode_community	mannheimer-msu_data_census

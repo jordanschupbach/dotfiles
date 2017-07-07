@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/mnt/mydata/Consulting/examples_for_gras/md_examples/example_report'
+let g:netrw_dirhist_2='/mnt/mydata/Consulting/mannheimer-msu_data_census'
+let g:netrw_dirhist_3='/home/jordan'
+let g:netrw_dirhist_4='/home/jordan/Documents'
+let g:netrw_dirhist_5='/home/jordan'
+let g:netrw_dirhist_6='/home/jordan/Downloads'
+let g:netrw_dirhist_7='/home/jordan'
+let g:netrw_dirhist_8='/home'
+let g:netrw_dirhist_9='/'

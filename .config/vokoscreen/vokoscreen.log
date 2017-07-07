@@ -1,0 +1,6 @@
+vokoscreen Version: 2.4.0
+Record resolution: 1918x1078
+Alsa string: -f alsa -i pulse 
+Qt Version: 4.8.7
+ffmpeg Version: 2.8.11-0ubuntu0.16.04.1
+Record String: /usr/bin/ffmpeg -report  -f x11grab -framerate 25 -video_size 1918x1078 -i :0+0,0 -f alsa -i pulse  -pix_fmt yuv420p -c:v libx264 -preset veryfast -c:a libvorbis  -q:v 1  -s 1920x1080 /home/jordan/Videos/vokoscreen-2017-06-19_12-35-56.mkv

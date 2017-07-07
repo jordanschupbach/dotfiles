@@ -1,0 +1,70 @@
+* {
+    font-family: Arial, Helvetica, sans-serif; /*Trebuchet MS, Tahoma, Verdana*/
+}
+		#page_title {
+			color:#039;
+			font-weight:bold;
+			font-size:18px;
+			margin-bottom:2px;
+		}
+		.section {
+			color:#039;
+			font-weight:bold;
+			font-size:14px;
+			margin:5px 0 4px 0;
+		}
+		label {
+			margin-left: 0px;	
+			font-size:13px;
+		}
+		label2 {
+			margin-left: 0px;	
+			font-size:13px;
+		}
+		label3 {
+			margin-left: 20px;	
+			font-size:13px;
+		}
+		check {
+			cursor:default;
+		}
+		#notice {
+			margin-top: 10px;
+			font-size:13px;
+		}
+		#status {
+			font-size:12px;
+			font-weight:bold;
+			color:#039;
+		}
+
+A:link    {color:#0860A8;text-decoration:underline;}
+A:visited {color:#0860A8;text-decoration:underline;}
+A:active  {color:#0860A8;text-decoration:underline;}
+A:hover  {color:#0860A8;text-decoration:underline;}
+
+.nav{
+   font-size: 13px;
+   line-height:1.5em;
+}
+
+.hometitle{
+    font-family: "Gulim";
+    font-weight: normal;
+    font-size: 13px;
+	color: #0860A8;
+}
+
+.homeurl{
+    font-family: "Gulim";
+    font-weight: normal;
+    font-size: 13px;
+	color:#329B6D;
+	text-decoration:none;
+}
+
+.layer_message{
+	position:absolute;
+	overflow:hidden;
+	-webkit-box-shadow: 0 0 15px #999;
+}

@@ -1,0 +1,217 @@
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+argglobal
+setlocal fdm=marker
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=5
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+19
+normal! zc
+52
+normal! zc
+62
+normal! zo
+68
+normal! zo
+73
+normal! zc
+98
+normal! zo
+114
+normal! zc
+98
+normal! zc
+68
+normal! zc
+190
+normal! zo
+193
+normal! zc
+203
+normal! zc
+207
+normal! zc
+226
+normal! zc
+230
+normal! zc
+250
+normal! zc
+275
+normal! zc
+288
+normal! zc
+302
+normal! zc
+323
+normal! zc
+338
+normal! zc
+349
+normal! zc
+361
+normal! zc
+375
+normal! zc
+379
+normal! zc
+386
+normal! zc
+390
+normal! zc
+408
+normal! zc
+415
+normal! zc
+419
+normal! zc
+427
+normal! zc
+431
+normal! zc
+443
+normal! zc
+447
+normal! zc
+451
+normal! zc
+455
+normal! zc
+463
+normal! zc
+468
+normal! zc
+473
+normal! zc
+477
+normal! zc
+190
+normal! zc
+487
+normal! zo
+497
+normal! zc
+516
+normal! zc
+539
+normal! zc
+487
+normal! zc
+62
+normal! zc
+1015
+normal! zc
+1049
+normal! zo
+1066
+normal! zc
+1049
+normal! zc
+1088
+normal! zo
+1110
+normal! zc
+1126
+normal! zc
+1143
+normal! zc
+1088
+normal! zc
+1153
+normal! zo
+1185
+normal! zo
+1185
+normal! zc
+1203
+normal! zc
+1218
+normal! zc
+1236
+normal! zc
+1249
+normal! zc
+1262
+normal! zc
+1271
+normal! zc
+1288
+normal! zc
+1305
+normal! zc
+1323
+normal! zc
+1339
+normal! zc
+1350
+normal! zc
+1368
+normal! zc
+1384
+normal! zc
+1395
+normal! zc
+1413
+normal! zc
+1153
+normal! zc
+1424
+normal! zo
+1453
+normal! zo
+1453
+normal! zc
+1462
+normal! zc
+1477
+normal! zc
+1489
+normal! zc
+1498
+normal! zc
+1507
+normal! zc
+1522
+normal! zc
+1538
+normal! zc
+1553
+normal! zc
+1563
+normal! zc
+1575
+normal! zo
+1658
+normal! zo
+1424
+normal! zc
+1575
+normal! zo
+1603
+normal! zc
+1616
+normal! zc
+1627
+normal! zc
+1575
+normal! zc
+1639
+normal! zc
+1658
+normal! zo
+1658
+normal! zc
+1684
+normal! zc
+let s:l = 1684 - ((635 * winheight(0) + 7) / 15)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1684
+normal! 0
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+" vim: set ft=vim :

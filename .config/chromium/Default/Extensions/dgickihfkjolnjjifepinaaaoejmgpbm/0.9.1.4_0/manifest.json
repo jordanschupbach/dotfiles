@@ -1,0 +1,32 @@
+{
+   "background": {
+      "page": "background.html"
+   },
+   "browser_action": {
+      "default_icon": "images/icon19.png",
+      "default_title": "__MSG_ext_name__"
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "js": [ "js/inject.js" ],
+      "matches": [ "http://pdfviewer.softgateon.net/*" ],
+      "run_at": "document_start"
+   } ],
+   "content_security_policy": "script-src 'self' https://www.google.com; object-src 'self'",
+   "default_locale": "en",
+   "description": "__MSG_ext_description__",
+   "icons": {
+      "128": "images/icon128.png",
+      "16": "images/icon16.png",
+      "48": "images/icon48.png"
+   },
+   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCw6kMDKEABM2CJnfcnltg/di/2/EuntRBcoqhz8E3l/Zwgj0Vx+u4pcfyXP4o5JpIVvsJEvjk8DoHWh6BaCPLcWwCRDY/WDkg2yca5f60eUuoS6PXBkqOXY4Y8BgK0xryx3TmObWpzYyaNMopfIrFAb7BPE2ai1SdoV1+5sgMoOwIDAQAB",
+   "manifest_version": 2,
+   "minimum_chrome_version": "37.0.0.0",
+   "name": "__MSG_ext_name__",
+   "options_page": "options.html",
+   "permissions": [ "tabs", "contextMenus", "storage", "bookmarks", "http://*/*", "https://*/*", "\u003Call_urls>" ],
+   "update_url": "http://clients2.google.com/service/update2/crx",
+   "version": "0.9.1.4",
+   "web_accessible_resources": [ "options.html" ]
+}
