@@ -1,9 +1,0 @@
-pane	mann	0	:..ports/report2	1	:*	0	:/mnt/mydata/Consulting/mannheimer-msu_data_census/internal_docs/reports/report2	1	zsh	:
-pane	mann	1	:vit	0	:	0	:/mnt/mydata/Consulting/mannheimer-msu_data_census	1	perl	:/usr/bin/perl -w /usr/local/bin/vit
-pane	mann	2	:ranger	0	:	0	:/mnt/mydata/Consulting/mannheimer-msu_data_census	1	python	:/usr/bin/python -O /usr/bin/ranger
-pane	mann	3	:cmus	0	:-	0	:/mnt/mydata/Consulting/mannheimer-msu_data_census	1	cmus	:cmus
-window	mann	0	1	:*	ce7d,146x29,0,0,0
-window	mann	1	0	:	ae7e,146x40,0,0,1
-window	mann	2	0	:	ae7f,146x40,0,0,2
-window	mann	3	0	:-	ae80,146x40,0,0,3
-state	mann	

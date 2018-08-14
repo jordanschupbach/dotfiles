@@ -1,9 +1,0 @@
-pane	0	0	:..ta/Consulting	1	:*	0	:/mnt/mydata/Consulting	1	zsh	:
-pane	0	1	:vit	0	:-	0	:/home/jordan/.vim/bundle	1	perl	:/usr/bin/perl -w /usr/local/bin/vit
-pane	0	2	:cmus	0	:	0	:/home/jordan/.vim/bundle	1	cmus	:cmus
-pane	0	3	:mutt	0	:	0	:/home/jordan/git_repos	1	mutt	:mutt
-window	0	0	1	:*	ae7e,146x40,0,0,1
-window	0	1	0	:-	ae7f,146x40,0,0,2
-window	0	2	0	:	ae80,146x40,0,0,3
-window	0	3	0	:	ae81,146x40,0,0,4
-state	0	

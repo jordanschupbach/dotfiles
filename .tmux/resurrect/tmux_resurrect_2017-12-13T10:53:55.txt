@@ -1,0 +1,3 @@
+pane	0	0	:zsh	1	:*	0	:/home/jordan	1	zsh	:
+window	0	0	1	:*	b83d,159x42,0,0,0
+state	0	

@@ -1,0 +1,5 @@
+* Blogs                                                              :elfeed:
+** Statistics                                                         :linux:
+*** [[https://feeds.feedburner.com/RBloggers][R-bloggers]]
+** Comics
+*** [[https://www.xkcd.com/rss.xml][xkcd comics]]

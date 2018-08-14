@@ -1,9 +1,0 @@
-2017/06/28-11:04:43.740 2538 Reusing MANIFEST /home/jordan/.config/chromium/Default/IndexedDB/https_drive.google.com_0.indexeddb.leveldb/MANIFEST-000001
-2017/06/28-11:04:43.740 2538 Recovering log #42
-2017/06/28-11:04:43.815 2538 Reusing old log /home/jordan/.config/chromium/Default/IndexedDB/https_drive.google.com_0.indexeddb.leveldb/000042.log 
-2017/06/28-11:05:01.073 24785 Level-0 table #46: started
-2017/06/28-11:05:01.271 24785 Level-0 table #46: 7073857 bytes OK
-2017/06/28-11:05:01.349 24785 Delete type=0 #42
-2017/06/28-11:05:39.689 24785 Level-0 table #48: started
-2017/06/28-11:05:39.841 24785 Level-0 table #48: 6987298 bytes OK
-2017/06/28-11:05:39.887 24785 Delete type=0 #45

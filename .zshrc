@@ -1,142 +1,278 @@
-# {{{ Document Info
-# Filename: .zshrc
-# Author: Jordan Schupbach
-# Purpose: My zsh config
-# Date: 06/02/2017
-# }}} Document Info
+source ~/.zplug/init.zsh
 
-# {{{ oh-my-zsh import
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
-
-export ZSH=$HOME/.oh-my-zsh
-
-# }}} oh-my-zsh import
-
-# {{{ Theme
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# ZSH_THEME="rkj-repos"
-# ZSH_THEME="powerlevel9k"
-
-ZSH_THEME="powerlevel9k/powerlevel9k"
-# }}} Theme
-
-# {{{ .oh_my_zsh options?
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+# {{{ zplug examples
+# # Make sure to use double quotes
+# zplug "zsh-users/zsh-history-substring-search"
+#
+# # Use the package as a command
+# # And accept glob patterns (e.g., brace, wildcard, ...)
+# zplug "Jxck/dotfiles", as:command, use:"bin/{histuniq,color}"
+#
+# # Can manage everything e.g., other person's zshrc
+# zplug "tcnksm/docker-alias", use:zshrc
+#
+# # Disable updates using the "frozen" tag
+# zplug "k4rthik/git-cal", as:command, frozen:1
+#
+# # Grab binaries from GitHub Releases
+# # and rename with the "rename-to:" tag
+# zplug "junegunn/fzf-bin", \
+#     from:gh-r, \
+#     as:command, \
+#     rename-to:fzf, \
+#     use:"*darwin*amd64*"
+#
+# # Supports oh-my-zsh plugins and the like
+# zplug "plugins/git",   from:oh-my-zsh
+#
+# # Also prezto
+# zplug "modules/prompt", from:prezto
+#
+# # Load if "if" tag returns true
+# zplug "lib/clipboard", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
+#
+# # Run a command after a plugin is installed/updated
+# # Provided, it requires to set the variable like the following:
+# # ZPLUG_SUDO_PASSWORD="********"
+# zplug "jhawthorn/fzy", \
+#     as:command, \
+#     rename-to:fzy, \
+#     hook-build:"make && sudo make install"
+#
+# # Supports checking out a specific branch/tag/commit
+# zplug "b4b4r07/enhancd", at:v1
+# zplug "mollifier/anyframe", at:4c23cb60
+#
+# # Can manage gist file just like other packages
+# zplug "b4b4r07/79ee61f7c140c63d2786", \
+#     from:gist, \
+#     as:command, \
+#     use:get_last_pane_path.sh
+#
+# # Support bitbucket
+# zplug "b4b4r07/hello_bitbucket", \
+#     from:bitbucket, \
+#     as:command, \
+#     use:"*.sh"
+#
+# # Rename a command with the string captured with `use` tag
+# zplug "b4b4r07/httpstat", \
+#     as:command, \
+#     use:'(*).sh', \
+#     rename-to:'$1'
+#
+# # Group dependencies
+# # Load "emoji-cli" if "jq" is installed in this example
+# zplug "stedolan/jq", \
+#     from:gh-r, \
+#     as:command, \
+#     rename-to:jq
+# zplug "b4b4r07/emoji-cli", \
+#     on:"stedolan/jq"
+# # Note: To specify the order in which packages should be loaded, use the defer
+# #       tag described in the next section
+#
+# # Set the priority when loading
+# # e.g., zsh-syntax-highlighting must be loaded
+# # after executing compinit command and sourcing other plugins
+# # (If the defer tag is given 2 or above, run after compinit command)
+# zplug "zsh-users/zsh-syntax-highlighting", defer:2
+#
+# # Can manage local plugins
+# zplug "~/.zsh", from:local
+#
+# # Load theme file
+# zplug 'dracula/zsh', as:theme
 #
 #
-# }}} .oh_my_zsh options?
+# }}} zplug examples
 
-# {{{ Load plugins
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git tig vi-mode tmux tmuxinator colored-man-pages colorize dirhistory zsh-navigation-tools z extract wd reminder taskwarrior)
-plugins+=(k)
-plugins+=(zsh-dircolors-solarized)
-plugins+=(up)
-plugins+=(zsh-snippets)
+# {{{ zplug plugins
 
-source $ZSH/oh-my-zsh.sh
+# {{{ oh-my-zsh plugins
 
-# }}} Load plugins
+# zplug "plugins/archlinux",   from:oh-my-zsh #Only need on archlinux machines
+zplug "plugins/colored-man-pages",   from:oh-my-zsh
+zplug "plugins/colorize",   from:oh-my-zsh
+zplug "plugins/dirhistory",   from:oh-my-zsh
+zplug "plugins/extract",   from:oh-my-zsh
+zplug "plugins/git",   from:oh-my-zsh
+zplug "plugins/pip",   from:oh-my-zsh
+zplug "plugins/reminder",   from:oh-my-zsh
+zplug "plugins/taskwarrior",   from:oh-my-zsh
+zplug "plugins/tig",   from:oh-my-zsh
+zplug "plugins/tmux",   from:oh-my-zsh
+zplug "plugins/tmuxinator",   from:oh-my-zsh
+zplug "plugins/vi-mode",   from:oh-my-zsh
+zplug "plugins/wd",   from:oh-my-zsh
+zplug "plugins/z",   from:oh-my-zsh
+zplug "plugins/zsh-navigation-tools",   from:oh-my-zsh
 
-# {{{ User configuration
+# }}} oh-my-zsh plugins
 
-# export MANPATH="/usr/local/man:$MANPATH"
+# {{{ github
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+zplug "zsh-users/fizsh"
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-syntax-highlighting"
+zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-history-substring-search"
+zplug "zsh-users/zaw"
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+# }}} zplug plugins
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# {{{ theme
+# Load theme file
+zplug 'eendroroy/alien', as:theme
+# }}} theme
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
+# {{{ theme settings
+# # Load theme file
+# zplug 'dracula/zsh', as:theme
+export ALIEN_THEME="red"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+#color0=018      # time background color
+#color1=226      # normal background color
+#color1r=196     # normal error background color
+#color2=254      # time foreeground color
+#color3=026      # user background color
+#color4=254      # user foreground color
+#color5=045      # dir background color
+#color6=019      # dir foreground color
+#color7=238      # vcs background color
+#color8=129      # prompt foreground color
+#color9=051      # vcs foreground color
+#color10=244     # git left-right background color
+#color11=255     # git left-right foreground color
+#color12=253     # dirty copy background color
+#color13=016     # dirty copy foreground color
+#color14=245     # venv color
 
-# }}} User configuration
+export USE_NERD_FONT=1
+# }}} theme settings
+
+# }}} zplug plugins
+
+# {{{ Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+# }}} Install plugins if there are plugins that have not been installed
+
+# {{{ Load zplug
+zplug load #--verbose
+# }}} Load zplug
 
 # {{{ zce
-source ~/zce.zsh
+source ~/dot_files/zce.zsh
 bindkey "^Xz" zce
 # }}} zce
 
-# {{{ Task todo
-# TODO_SAVE_COLOR_FILE=.work_todo_color.sav
-# TODO_SAVE_TASKS_FILE=.work_todo.sav
-#
-# cp .work_default_todo_color.sav .work_todo_color.sav
-# cp .work_default_todo.sav .work_todo.sav
-#
-# alias notodo='TODO_SAVE_TASKS_FILE=.no_todo.sav'
-# alias worktodo='TODO_SAVE_TASKS_FILE=.work_todo.sav'
-# }}} Task todo
-
-# {{{ zsh-snippets 
+# {{{ zsh-snippets
 alias zsp="zsh_snippets"
 bindkey '^S^S' zsh-snippets-widget-expand  # CTRL-S CTRL-S (expand)
 bindkey '^S^A' zsh-snippets-widget-list    # CTRL-S CTRL-A (list)
-# }}} zsh-snippets 
+# }}} zsh-snippets
 
-
+# {{{ Basic Settings
 export VISUAL=vim
 export EDITOR="$VISUAL"
-source ~/.bin/tmuxinator.zsh
-source ~/.shell_prompt.sh
+# export TERM="xterm"
+
+# Set vimpager as pager
+export PAGER=vimpager
+alias less=$PAGER
+alias zless=$PAGER
+alias man='man -P vimpager'
+
+# }}} Basic Settings
+
+# {{{ Imports
+source ~/dot_files/tmuxinator.zsh
+# source ~/.shell_prompt.sh
+# }}} Imports
+
+# {{{ fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+fzf_history() { zle -I; eval $(history | fzf +s | sed 's/ *[0-9]* *//') ; }; zle -N fzf_history; bindkey '^F' fzf_history
+
+fzf_cd() { zle -I; DIR=$(find ${1:-*} -path '*/\.*' -prune -o -type d -print 2> /dev/null | fzf) && cd "$DIR" ; }; zle -N fzf_cd; bindkey '^E' fzf_cd
+
+# }}} fzf
+
+# {{{ config file aliases
+alias cfg-awesome="vim ~/.config/awesome/rc.lua"
+alias cfg-muttrc="vim ~/.muttrc"
+alias cfg-nvim="vim ~/.config/nvim/init.vim"
+alias cfg-taskrc="vim ~/.taskrc"
+alias cfg-tmuxconf="vim ~/dot_files/.tmux.conf"
+alias cfg-vimrc="vim ~/dot_files/.vimrc"
+alias cfg-vitrc="vim ~/.vitrc"
+alias cfg-zshrc="vim ~/.zshrc"
+# }}} config file aliases
+
+# {{{ program aliases
+alias c="cmus"
+alias e="emacs25 --no-window-system"
+alias ipy="ipython"
+alias m="mutt"
+alias n="nvim"
+alias o="okular"
+alias r="ranger"
+alias t="tmux"
+alias v="vim"
+#  }}} program aliases
+
+# {{{ User Defined Functions and bindings
+cdl() { cd "$@" && ls; }
+
+up-a-directory() {
+  emulate -L zsh
+  echo
+  cd ..
+  ls
+}
+
+function chpwd() {
+    emulate -L zsh
+    ls
+}
+
+zle -N up-a-directory
+
+bindkey '^k' up-a-directory
+
+# }}} User Defined Functions and bindings
+
+# {{{ Path variables
+
+export PATH=/usr/local/cuda-9.1/bin${PATH:+:${PATH}}
+
+# export LD_LIBRARY_PATH=/usr/local/cuda-9.1/lib64\
+#                          ${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+# export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/cuda/extras/CUPTI/lib64
+LD_LIBRARY_PATH=/usr/local/pgsql/lib:$LD_LIBRARY_PATH
+
+export LD_LIBRARY_PATH
+
+PATH=/usr/local/pgsql/bin:$PATH
+export PATH
+
+PATH=/home/jordan/git_repos/dipha/build:$PATH
+export PATH
+
+# }}} Path variables
+
+# {{{ Startup commands
+archey
+figlet -d ~/git_repos/figlet-fonts -f 'rebel' watson | lolcat
+# fortune | ponysay
+# }}} Startup commands
+
+# {{{ vim modelines
+# vim: set foldmethod=marker:
+# }}} vim modelines
