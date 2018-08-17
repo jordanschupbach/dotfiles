@@ -4,3 +4,6 @@
 [submodule "tmux-continuum"]
 	path = .tmux/plugins/tmux-continuum
 	url = git://github.com/tmux-plugins/tmux-powerline.git
+[submodule ".zplug"]
+	path = .zplug
+	url = https://github.com/zplug/zplug
