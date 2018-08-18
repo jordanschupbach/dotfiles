@@ -167,7 +167,7 @@ zplug load #--verbose
 # }}} Load zplug
 
 # {{{ zce
-source ~/dot_files/zce.zsh
+source ~/dotfiles/zce.zsh
 bindkey "^Xz" zce
 # }}} zce
 
@@ -191,7 +191,7 @@ alias man='man -P vimpager'
 # }}} Basic Settings
 
 # {{{ Imports
-source ~/dot_files/tmuxinator.zsh
+source ~/dotfiles/tmuxinator.zsh
 # source ~/.shell_prompt.sh
 # }}} Imports
 
@@ -268,7 +268,7 @@ export PATH
 # }}} Path variables
 
 # {{{ Startup commands
-archey
+archey3
 figlet -d ~/git_repos/figlet-fonts -f 'rebel' watson | lolcat
 # fortune | ponysay
 # }}} Startup commands
