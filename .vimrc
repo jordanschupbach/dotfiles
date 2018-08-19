@@ -533,12 +533,12 @@ let g:airline_powerline_fonts = 1
 " {{{ vim-colorscheme
 colorscheme onedark  " Need to copy colors folder before works
 
-function! ToggleColorscheme() 
+function! ToggleColorscheme()
   if colorbg == "dark"
-    colorscheme 0x7A69_dark 
+    colorscheme 0x7A69_dark
     let colorbg = "light"
-  else 
-    colorscheme onedark 
+  else
+    colorscheme onedark
     let colorbg = "dark"
   endif
 endfunction
@@ -660,7 +660,11 @@ let g:task_left_arrow      = '>> '
 " TODO: Figure our why this has to go after plugin settings
 " i.e. which plugin is setting these.. probably color plugin?
 set cursorline
-hi CursorLine cterm=underline gui=underline ctermbg=darkgrey
+hi CursorLine cterm=underline gui=underline ctermbg=238
+
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=black   ctermbg=236
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgray ctermbg=237
 
 augroup python
     au!
