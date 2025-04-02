@@ -1,0 +1,17 @@
+#!/bin/bash
+
+emacs_daemon_running() {
+    emacs --batch --eval '(if (daemonp) (kill-emacs 0) 1)' >/dev/null 2>&1
+}
+
+# Check if Emacs daemon is running
+if emacs_daemon_running; then
+  echo " emacs daemon is running"
+else
+  echo "Emacs daemon is not running."
+  # Start Emacs daemon if it's not running
+  # emacs --daemon >/dev/null 2>&1;
+fi
+
+# Open Emacs with emacsclient
+# emacsclient -c

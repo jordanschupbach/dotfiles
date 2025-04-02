@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+## If alacritty.yml does not exist, raise an alert
+[[ ! -f ~/.config/alacritty/alacritty.yml ]] && \
+    notify-send "alacritty.yml does not exist" && exit 0
+
+## Fetch background_opacity from alacritty.yml
+opacity=$(grep Alacritty ~/.config/picom.conf | grep -o -E "[0-9]+")
+
+min_opacity=20
+new_opacity=$(($opacity - 2))
+
+
+if [ "$new_opacity" -lt "$min_opacity" ]; then
+    new_opacity=$max_opacity
+fi
+
+
+
+## Replace opacity value in alacritty.yml
+sed -i -- "s/\"$opacity:class_g = 'Alacritty'\"/\"$new_opacity:class_g = 'Alacritty'\"/" \
+    ~/.config/picom.conf

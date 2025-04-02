@@ -1,0 +1,5 @@
+#!/bin/bash
+
+conda env create --name $1
+conda activate $1
+conda env export | grep -v "^prefix: " > environment.yml

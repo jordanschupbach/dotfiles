@@ -1,0 +1,128 @@
+#!/usr/bin/env bash
+
+function usage() {
+    cat <<USAGE
+
+    Usage: $0 [-t tag] [--skip-verification]
+
+    Options:
+        -t, --toggle:            toggle Light/Dark
+        -l, --light:             light mode
+        -d, --dark:              dark mode
+USAGE
+    exit 1
+}
+
+ldfp="$HOME/.cache/ldmode"
+LD_THEME=$(cat "$ldfp")
+
+# echo "$LD_THEME"
+
+
+function dark_mode() {
+    fn=$(ls ~/wallpapers/dark_wallpapers |sort -R |tail -1)
+    pf="~/wallpapers/dark_wallpapers/$fn"
+    DISPLAY=:0 feh --bg-scale "$pf"
+    wal -i "$pf" >/dev/null
+    sed -i -- "s/c.colors.webpage.darkmode.enabled = False/c.colors.webpage.darkmode.enabled = True/" ~/.config/qutebrowser/config.py
+    sed -i -- "s/light/dark/" ~/.scripts/.mode
+    sed -i -- "s/light/dark/" ~/.cache/charm/charm.properties
+    sed -i -- "s/light/dark/" ~/.cache/ldmode
+}
+
+
+function light_mode() {
+    fn=$(ls ~/wallpapers/light_wallpapers |sort -R |tail -1)
+    pf="~/wallpapers/light_wallpapers/$fn"
+    DISPLAY=:0 feh --bg-scale "$pf"
+    wal -l -i "$pf" >/dev/null
+    sed -i -- "s/c.colors.webpage.darkmode.enabled = True/c.colors.webpage.darkmode.enabled = False/" ~/.config/qutebrowser/config.py
+    sed -i -- "s/dark/light/" ~/.scripts/.mode
+    sed -i -- "s/dark/light/" ~/.cache/charm/charm.properties
+    sed -i -- "s/dark/light/" ~/.cache/ldmode
+}
+
+
+
+function random_bg() {
+  if [[ $LD_THEME == light ]]; then
+      light_mode
+  fi
+
+  if [[ $LD_THEME == dark ]]; then
+      dark_mode
+  fi
+
+}
+
+
+
+
+function mode_toggle() {
+  if [[ $LD_THEME == light ]]; then
+      echo "made it!!"
+      dark_mode
+      sed -i -- "s/light/dark/" ~/.scripts/.mode
+    sed -i -- "s/dark/light/" ~/.cache/ldmode
+  fi
+
+  if [[ $LD_THEME == dark ]]; then
+      light_mode
+      sed -i -- "s/dark/light/" ~/.scripts/.mode
+      sed -i -- "s/dark/light/" ~/.cache/ldmode
+      # echo 'awesome.restart()' | awesome-client
+      # export LD_THEME="dark"
+  fi
+
+}
+
+
+if [ $# -eq 0 ]; then
+    random_bg
+    exit 1
+fi
+
+while [ "$1" != "" ]; do
+    case $1 in
+    -d | --dark)
+      dark_mode
+        ;;
+    -l | --light)
+      light_mode
+        ;;
+    -t | --toggle)
+        mode_toggle
+        ;;
+    -h | --help)
+        usage
+        ;;
+    *)
+        usage
+        exit 1
+        ;;
+    esac
+    shift
+done
+
+
+# if [[ $LD_THEME == light ]]; then
+#     fn=$(ls ~/wallpapers/light_wallpapers |sort -R |tail -1)
+#     pf="~/wallpapers/light_wallpapers/$fn"
+#     DISPLAY=:0 feh --bg-scale "$pf"
+#     wal -l -i "$pf" >/dev/null
+#     sed -i -- "s/c.colors.webpage.darkmode.enabled = True/c.colors.webpage.darkmode.enabled = False/" ~/.config/qutebrowser/config.py
+#     sed -i -- "s/light/dark/" ~/.scripts/.ldtheme
+#     # echo 'awesome.restart()' | awesome-client
+#     # export LD_THEME="dark"
+# fi
+#
+# if [[ $LD_THEME == dark ]]; then
+#     fn=$(ls ~/wallpapers/dark_wallpapers |sort -R |tail -1)
+#     pf="~/wallpapers/dark_wallpapers/$fn"
+#     DISPLAY=:0 feh --bg-scale "$pf"
+#     wal -i "$pf" >/dev/null
+#     sed -i -- "s/c.colors.webpage.darkmode.enabled = False/c.colors.webpage.darkmode.enabled = True/" ~/.config/qutebrowser/config.py
+#     sed -i -- "s/light/dark/" ~/.scripts/.ldtheme
+#     # echo 'awesome.restart()' | awesome-client
+#     # export LD_THEME="light"
+# fi

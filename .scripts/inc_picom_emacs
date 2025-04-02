@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+## If ~/.config/picom.conf does not exist, raise an alert
+[[ ! -f ~/.config/picom/picom.conf ]] && \
+    notify-send "~/.config/picom/picom.conf does not exist" && exit 0
+
+## Fetch background_opacity from picom.conf
+opacity=$(grep Emacs ~/.config/picom.conf | grep -o -E "[0-9]+")
+
+max_opacity=100
+new_opacity=$(($opacity + 2))
+
+
+if [ "$new_opacity" -gt "$max_opacity" ]; then
+    new_opacity=$max_opacity
+fi
+
+sed -i -- "s/\"$opacity:class_g = 'Emacs'\"/\"$new_opacity:class_g = 'Emacs'\"/" \
+    ~/.config/picom.conf

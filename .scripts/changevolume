@@ -1,0 +1,15 @@
+#!/bin/bash
+
+function send_notification() {
+  volumewpct=$( awk -F"[][]" '/Left:/ { print $2 }' <(amixer sget Master))
+  volume=$(echo $volumewpct | cut -d "%" -f 1)
+  echo $volume
+  dunstify -a 'changevolume' -u low -r 9993 -h int:value:"$volume" -i "volume-up" "Volume: $volume%" -t 2000
+
+  newvolume=$(($volume + 2))
+  echo $newvolume
+}
+
+  amixer sset 'Master' $newvolume%
+
+send_notification

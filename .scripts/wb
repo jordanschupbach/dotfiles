@@ -1,0 +1,89 @@
+#!/usr/bin/env bash
+
+function usage() {
+    cat <<USAGE
+
+    Usage: $0 [-t tag] [--skip-verification]
+
+    Options:
+        -t, --toggle:            toggle waybar
+        -h, --hide:             hide waybar
+        -s, --show:              show show
+USAGE
+    exit 1
+}
+
+wbfp="$HOME/.cache/wbmode"
+WB_MODE=$(cat "$wbfp")
+
+ldfp="$HOME/.cache/ldmode"
+LD_MODE=$(cat "$ldfp")
+
+
+function hide_waybar() {
+  killall waybar
+  pkill waybar
+  sleep 0.1
+}
+
+function show_waybar() {
+
+  # echo "inside show_waybar..."
+  # echo "LD_MODE: $LD_MODE"
+  if [[ $LD_MODE == light ]]; then
+      waybar -c ~/.config/hypr/waybar/config-top.json -s ~/.config/hypr/waybar/style-light.css &
+      waybar -c ~/.config/hypr/waybar/config-left.json -s ~/.config/hypr/waybar/style-light.css &
+      waybar -c ~/.config/hypr/waybar/config-bottom.json -s ~/.config/hypr/waybar/style-light.css &
+  fi
+
+  if [[ $LD_MODE == dark ]]; then
+      waybar -c ~/.config/hypr/waybar/config-top.json -s ~/.config/hypr/waybar/style-dark.css &
+      waybar -c ~/.config/hypr/waybar/config-left.json -s ~/.config/hypr/waybar/style-dark.css &
+      waybar -c ~/.config/hypr/waybar/config-bottom.json -s ~/.config/hypr/waybar/style-dark.css &
+  fi
+
+}
+
+WB_MODE=$(cat "$wbfp")
+function toggle_waybar() {
+  if [[ $WB_MODE == on ]]; then
+      # echo "made it!!"
+      hide_waybar
+      sed -i -- "s/on/off/" ~/.scripts/.wbmode
+      sed -i -- "s/on/off/" ~/.cache/wbmode
+  fi
+
+  if [[ $WB_MODE == off ]]; then
+      show_waybar
+      sed -i -- "s/off/on/" ~/.scripts/.wbmode
+      sed -i -- "s/off/on/" ~/.cache/wbmode
+  fi
+
+}
+
+
+while [ "$1" != "" ]; do
+    case $1 in
+    -s | --show)
+      # echo "showing waybar..."
+      show_waybar
+        ;;
+    -h | --hide)
+      # echo "hiding waybar..."
+      hide_waybar
+        ;;
+    -t | --toggle)
+      # echo "toggling waybar..."
+        toggle_waybar
+        ;;
+    -h | --help)
+        usage
+        ;;
+    *)
+        usage
+        exit 1
+        ;;
+    esac
+    shift
+done
+

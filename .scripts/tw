@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+# Check if the number of command-line arguments is less than 1 (change to the desired number)
+if [ $# -ne 1 ]; then
+    echo "Error: You must provide at least one command-line argument."
+    exit 1
+fi
+
+datafolder="~/task/$1"
+
+taskwarrior-tui --taskdata $datafolder --data $datafolder

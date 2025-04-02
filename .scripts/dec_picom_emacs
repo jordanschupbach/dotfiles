@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+# scripts_dir="$HOME/.scripts/"
+# opacity_scriptname="alacritty_opacity.sh"
+# source $scripts_dir$opacity_scriptname
+# echo $opacity
+# incremented_opacity=$(($opacity + 5))
+# echo $incremented_opacity
+
+## If alacritty.yml does not exist, raise an alert
+[[ ! -f ~/.config/alacritty/alacritty.yml ]] && \
+    notify-send "alacritty.yml does not exist" && exit 0
+
+## Fetch background_opacity from picom.conf
+opacity=$(grep Emacs ~/.config/picom.conf | grep -o -E "[0-9]+")
+
+
+min_opacity=20
+
+new_opacity=$(($opacity - 2))
+
+
+if [ "$new_opacity" -lt "$min_opacity" ]; then
+    new_opacity=$min_opacity
+fi
+
+sed -i -- "s/\"$opacity:class_g = 'Emacs'\"/\"$new_opacity:class_g = 'Emacs'\"/" \
+    ~/.config/picom.conf

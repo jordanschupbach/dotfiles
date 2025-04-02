@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+# emacsclient -nc --eval '(load-file "~/.emacs.d/init.el")'
+emacs --daemon

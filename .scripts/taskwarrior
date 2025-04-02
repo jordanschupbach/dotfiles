@@ -1,0 +1,3 @@
+#!/bin/bash
+export WM_CLASS="new_instance_name,new_class_name"
+alacritty --class taskwarrior,taskwarrior  -e taskwarrior-tui &

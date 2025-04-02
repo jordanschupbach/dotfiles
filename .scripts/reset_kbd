@@ -1,0 +1,10 @@
+#!/bin/bash
+
+[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
+
+
+setxkbmap -option caps:ctrl_modifier
+
+xcape -t 200 -e 'Control_L=Escape'
+# xcape -t 200 -e 'Hyper_L=Escape'
+xset r rate 200 60

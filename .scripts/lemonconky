@@ -1,0 +1,5 @@
+#!/bin/bash
+conky | lemonbar \
+-g x40 \
+-B "#141c21" \
+-F "#93a1a1"

@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+inc_amount=20
+curr_brightness=$(cat /sys/class/backlight/amdgpu_bl1/brightness)
+new_brightness="$((inc_amount+curr_brightness))"
+echo $new_brightness | sudo tee /sys/class/backlight/amdgpu_bl1/brightness

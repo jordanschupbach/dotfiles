@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+## If ~/.config/picom.conf does not exist, raise an alert
+[[ ! -f ~/.config/picom.conf ]] && \
+    notify-send "~/.config/picom.conf does not exist" && exit 0
+
+## Fetch background_opacity from picom.conf
+opacity=$(grep qutebrowser ~/.config/picom.conf | grep -o -E "[0-9]+")
+
+
+min_opacity=20
+
+new_opacity=$(($opacity - 5))
+
+
+if [ "$new_opacity" -lt "$min_opacity" ]; then
+    new_opacity=$min_opacity
+fi
+
+sed -i -- "s/\"$opacity:class_g = 'qutebrowser'\"/\"$new_opacity:class_g = 'qutebrowser'\"/" \
+    ~/.config/picom.conf

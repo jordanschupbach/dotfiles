@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# xcompmgr &
+# compton &
+
+echo "Starting awesome from start-awesome script"
+
+xrdb ~/.Xresources
+xset r rate 200 60
+[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
+xcape -t 200 -e 'Control_L=Escape'
+
+nm-applet &
+pomodorino &
+
+# picom --config $HOME/.config/picom/picom.conf --fade-in-step=1 --fade-out-step=1 --fade-delta=0 &
+picom --fade-in-step=1 --fade-out-step=1 --fade-delta=0  --config $HOME/.config/picom/picom.conf &
+
+# feh --bg-scale ~/wallpapers/dark_comic_wallpapers/wall.png &
+# feh --bg-scale ~/wallpapers/dark_comic_wallpapers/wall.png &
+# exec /usr/bin/gifview  --animate -w root ~/wallpapers/dark_gifs/neon_dreams.gif
+
+reset_kbd
+xmodmap ~/.Xmodmap &
+# startx
+exec awesome
+# xmodmap ~/.Xmodmap
+

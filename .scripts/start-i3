@@ -1,0 +1,4 @@
+#!/bin/bash
+
+reset_kbd
+exec i3

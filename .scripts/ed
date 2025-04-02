@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+emacsclient -t -e "(switch-to-buffer \"*dashboard*\")"
+#
