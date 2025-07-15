@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+SESSION_NAME="$1"
+if tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
+  tmux attach -t "$SESSION_NAME"
+else
+  echo "starting tmux with new session name $SESSION_NAME"
+  tmux new-session -s "$SESSION_NAME" -n "main" -d
+  tmux attach -t "$SESSION_NAME"
+fi
+
+
+# if tmux has-session -t "asdf" 2>/dev/null; then
+#   echo "starting tmux with session name"
+# fi
+

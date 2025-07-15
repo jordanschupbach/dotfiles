@@ -20,8 +20,8 @@ LD_THEME=$(cat "$ldfp")
 
 
 function dark_mode() {
-    fn=$(ls ~/wallpapers/dark_wallpapers |sort -R |tail -1)
-    pf="~/wallpapers/dark_wallpapers/$fn"
+    fn=$(ls /home/jordan/wallpapers/dark_wallpapers |sort -R |tail -1)
+    pf="/home/jordan/wallpapers/dark_wallpapers/$fn"
     DISPLAY=:0 feh --bg-scale "$pf"
     wal -i "$pf" >/dev/null
     sed -i -- "s/c.colors.webpage.darkmode.enabled = False/c.colors.webpage.darkmode.enabled = True/" ~/.config/qutebrowser/config.py
@@ -32,8 +32,8 @@ function dark_mode() {
 
 
 function light_mode() {
-    fn=$(ls ~/wallpapers/light_wallpapers |sort -R |tail -1)
-    pf="~/wallpapers/light_wallpapers/$fn"
+    fn=$(ls /home/jordan/wallpapers/light_wallpapers |sort -R |tail -1)
+    pf="/home/jordan/wallpapers/light_wallpapers/$fn"
     DISPLAY=:0 feh --bg-scale "$pf"
     wal -l -i "$pf" >/dev/null
     sed -i -- "s/c.colors.webpage.darkmode.enabled = True/c.colors.webpage.darkmode.enabled = False/" ~/.config/qutebrowser/config.py

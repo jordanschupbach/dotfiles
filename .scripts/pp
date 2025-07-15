@@ -1,0 +1,21 @@
+#!/usr/bin/env sh
+
+# ls ~/projects | rofi -dmenu -p "Select a directory:" | xargs -I{} bash -c 'cd ~/projects/{} && if tmux has-session -t {}; then alacritty --title "{}" -e bash -c "tmux attach -d -t {}"; else alacritty --title "{}" -e bash -c "tmux new -s {}"; fi'
+
+
+ls ~/projects | rofi -dmenu -p "Select a directory:" | while IFS= read -r dir; do
+    ( 
+        cd ~/projects/"$dir" && \
+        if tmux has-session -t "$dir"; then 
+            # alacritty --title "$dir" -e bash -c "mep attach -d -t $dir"
+            #alacritty --title "$dir" -e bash -c "/home/jordan/.scripts/mep -- attach -d -t $dir"
+            # alacritty --title "$dir" -e bash -c "tmux attach -d -t $dir"
+            alacritty --title "$dir" -e bash -c "nix run --refresh 'github:jordanschupbach/mep' -- attach -d -t $dir"
+        else 
+            #alacritty --title "$dir" -e bash -c "mep new -s $dir"
+            #alacritty --title "$dir" -e bash -c "/home/jordan/.scripts/mep -- new -s $dir"
+            # alacritty --title "$dir" -e bash -c "tmux new -s $dir"
+            alacritty --title "$dir" -e bash -c "nix run --refresh 'github:jordanschupbach/mep' -- new -s $dir"
+        fi
+    ) &
+done
